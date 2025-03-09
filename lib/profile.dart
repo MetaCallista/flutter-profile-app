@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Profil',
+      title: 'Profile',
       home: const ProfileScreen(),
     );
   }
@@ -20,27 +20,34 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.lightBlue[50],
+      backgroundColor: const Color.fromRGBO(227, 242, 253, 1.0),
       appBar: AppBar(
-        title: const Text('Profil'),
+        title: const Text(
+          'Profil',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.blue,
+        backgroundColor: const Color.fromARGB(255, 1, 42, 146),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Column(
         children: [
-          const SizedBox(height: 20),
+          const SizedBox(height: 50),
           // Foto Profil
           const CircleAvatar(
-            radius: 60,
+            radius: 100,
             backgroundColor: Colors.grey,
             backgroundImage: AssetImage('assets/profile.jpg'),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 20),
           // Nama
           const Text(
             'Putu Meta Callista',
             style: TextStyle(
-              fontSize: 18,
+              fontSize: 25,
               fontWeight: FontWeight.bold,
               color: Colors.blue,
             ),
@@ -50,21 +57,22 @@ class ProfileScreen extends StatelessWidget {
           const Text(
             'https://metacallista.github.io/',
             style: TextStyle(
-              fontSize: 14,
+              fontSize: 20,
               color: Colors.blue,
+              fontWeight: FontWeight.bold,
             ),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 5),
           // Grid Menu
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(40.0),
               child: GridView.count(
                 crossAxisCount: 2,
-                mainAxisSpacing: 16,
-                crossAxisSpacing: 16,
-                childAspectRatio: 0.9,
+                mainAxisSpacing: 25,
+                crossAxisSpacing: 60,
+                childAspectRatio: 1.2,
                 children: [
                   MyCustomCard(
                     title: 'Singaraja',
@@ -74,17 +82,17 @@ class ProfileScreen extends StatelessWidget {
                   MyCustomCard(
                     title: 'Sambangan',
                     icon: Icons.store,
-                    iconColor: Colors.orange,
+                    iconColor: Colors.amber,
                   ),
                   MyCustomCard(
                     title: 'All Genre',
                     icon: Icons.music_note,
-                    iconColor: Colors.purple,
+                    iconColor: Colors.deepPurple,
                   ),
                   MyCustomCard(
                     title: 'Undiksha',
-                    icon: Icons.apartment,
-                    iconColor: Colors.red,
+                    icon: Icons.business,
+                    iconColor: Colors.blue,
                   ),
                 ],
               ),
@@ -111,14 +119,14 @@ class MyCustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 80, 
-      height: 80,
+      width: 120, 
+      height: 100,
       decoration: BoxDecoration(
         color: Colors.transparent,
         border: Border.all(color: Colors.blue, width: 2),
         borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(12),
-          topRight: Radius.circular(12),
+          topLeft: Radius.circular(15),
+          topRight: Radius.circular(15),
         ),
       ),
       child: Column(
@@ -128,13 +136,13 @@ class MyCustomCard extends StatelessWidget {
               child: Icon(
                 icon,
                 color: iconColor,
-                size: 150, 
+                size: 60, 
               ),
             ),
           ),
           Container(
             width: double.infinity,
-            padding: const EdgeInsets.symmetric(vertical: 6),
+            padding: const EdgeInsets.symmetric(vertical: 0),
             decoration: const BoxDecoration(
               color: Colors.blue,
             ),
@@ -142,12 +150,12 @@ class MyCustomCard extends StatelessWidget {
             child: Text(
               title,
               style: const TextStyle(
-                color: Colors.yellow,
+                color: Color.fromARGB(255, 245, 200, 76),
                 fontWeight: FontWeight.bold,
-                fontSize: 13, 
+                fontSize: 15, 
               ),
             ),
-          ),
+          ),  
         ],
       ),
     );
